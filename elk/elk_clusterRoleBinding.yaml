@@ -1,0 +1,16 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: elk-stack
+  name: elasticsearch-logging
+  labels:
+    app: elasticsearch-logging
+subjects:
+- kind: ServiceAccount
+  name: elasticsearch-logging
+  namespace: elk-stack
+  apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: elasticsearch-logging
+  apiGroup: ""
